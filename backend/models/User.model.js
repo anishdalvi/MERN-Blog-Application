@@ -10,7 +10,8 @@ const userSchema = new Schema({
     email : { type: String, required: true, unique: true },
     password : { type: String, required: true },
     blogs : [{type: mongoose.Types.ObjectId, ref:"Blog", required: true}]
-})
+}
+)
 
 //export default mongoose.model("User", userSchema)
 

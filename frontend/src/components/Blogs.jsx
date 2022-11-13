@@ -17,12 +17,12 @@ export default function Blogs() {
 
   }, [])
   //console.log(blogs)
-
+  
   return (
     <div>
       {blogs && blogs.map((blog, index) => (
       <Blog isUser = { localStorage.getItem('userId') === blog.user._id} blogId={blog._id}
-      key={index} title = {blog.title} description ={blog.description} imageURL = {blog.image} userName = {blog.user.name}/>  // or key={blog._id} 
+      key={index} title = {blog.title} description ={blog.description} imageURL = {blog.image} userName = {blog.user.name} blog_Date = {blog.updatedAt}/>  // or key={blog._id} 
       )) }
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
@@ -16,6 +16,7 @@ import { authActions } from "./store";
 function App() {
   const isLoggedIn = useSelector(state => state.isLoggedIn) 
   const dispatch = useDispatch()
+  const [isSignup, setisSignup] = useState(false)
   //console.log(isLoggedIn) 
   useEffect(() => {
     if ( localStorage.getItem("userId")){
@@ -28,11 +29,11 @@ function App() {
     <React.Fragment>
       <header>
         {/* <Header isLoggedIn={isLoggedIn} /> */}
-        <Header />
+        <Header isSignup={isSignup} setisSignup={setisSignup} />
       </header>
       <main>
         <Routes>
-          { !isLoggedIn ? <Route path="/auth" element={<Auth />} ></Route>:
+          { !isLoggedIn ? <Route path="/auth" element={<Auth isSignup={isSignup} setisSignup={setisSignup} />} ></Route>:
           <>
            <Route path="/blogs" element={<Blogs />} ></Route>
           <Route path="/blogs/add" element={<AddBlog />} ></Route>

@@ -10,7 +10,7 @@ export default function BlogDetails() {
   const id = useParams().id
   const navigate = useNavigate()
 
-  console.log(id)
+  //console.log(id)
   const labelStyles =  {mb:1, mt:2, fontWeight:"bold", fontSize:"24px"}
 
 
@@ -31,7 +31,7 @@ export default function BlogDetails() {
       })
     })
   }, [id])
-  console.log(blog)
+  //console.log(blog)
 
   const [inputs, setInputs] = useState({
     title:"",

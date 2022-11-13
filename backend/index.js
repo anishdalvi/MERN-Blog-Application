@@ -2,17 +2,18 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 //const bodyParser = require("body-parser")
+require('dotenv').config();
 
-const PORT = 5000
+const port = process.env.PORT || 5000
+const DB = process.env.DATABASE
 const app = express();
-
+//var ObjectId = require('mongodb').ObjectID;
 app.use(cors())
 
 
 //app.use(bodyParser.urlencoded({ extended: true }));
 //mongoose.connect(("mongodb://localhost:27017/blog-app-new"+"-replicaSet=rs")
-mongoose.connect(("mongodb+srv://anish:1234@firstcluster.hnsxgmy.mongodb.net/blog-app?retryWrites=true&w=majority")
-).then(()=> console.log("MongoDB connected")).catch((err)=> console.log(err))
+mongoose.connect(DB).then(()=> console.log("MongoDB connected")).catch((err)=> console.log(err))
 
 app.use(express.json())
 
@@ -24,6 +25,6 @@ const blogRouter = require('./routes/Blog.route')
 app.use('/api/blog',blogRouter)
 
 
-app.listen(PORT, () => {
-    console.log("Server Started at Port " + PORT)
+app.listen(port, () => {
+    console.log("Server Started at Port " + port)
 })

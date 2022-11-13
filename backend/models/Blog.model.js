@@ -8,8 +8,10 @@ const blogSchema = new Schema({
     image : { type: String, required: true },
     user: { type: mongoose.Types.ObjectId, 
             ref:"User",
-            required: true}
-})
+            required: true},
+            
+}  , { timestamps: true }
+)
 
 
 

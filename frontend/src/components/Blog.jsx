@@ -4,9 +4,23 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import moment from 'moment';
+//import ObjectId from 'mongodb.ObjectID'
+//var ObjectId = require('mongodb').ObjectID;
 
-export default function Blog({title, description, imageURL, userName, isUser, blogId}) {
-  console.log(title,isUser)
+
+
+
+export default function Blog({title, description, imageURL, userName, isUser, blogId,blog_Date}) {
+  //console.log(title,isUser)
+  //console.log(blog_Date)
+
+  var datefromMongo = new Date(blog_Date) 
+  //console.log(datefromMongo)
+
+  var formatedDate = moment(datefromMongo).format('DD/MM/YYYY hh:mm A')
+  //console.log(formatedDate)
+
 
   const navigate = useNavigate()
   const handleEdit = (e) => {
@@ -17,21 +31,22 @@ export default function Blog({title, description, imageURL, userName, isUser, bl
   const deleteRequest = async () =>{
     const res = await axios.delete(`http://localhost:5000/api/blog/${blogId}`).catch((err) => {console.log(err)})
     const data = await res.data
+    const value = 1
     return data
   }
 
 
   const handleDelete = () => {
-    deleteRequest().then((data) => {console.log(data)})
-    .then(() => navigate("/"))
-    .then(() => navigate("/blogs"))
+    
+    deleteRequest().then((data) => {console.log(data)}).then(() => navigate("/blogs"))
+    
   }
   
   return (
     <div>
-    <Card sx={{ width: "40%", margin:"auto", mt:2, padding:2, boxShadow:"6px 6px 10px #ccc",
+    <Card  sx={{ border: 3,borderColor: '#ccc',width: "40%", margin:"auto", my:5, padding:2, boxShadow:"6px 6px 10px #ccc", borderRadius:5,
      "&:hover":{
-        boxShadow:"10px 10px 20px #ccc",
+        boxShadow:"10px 10px 50px #ccc",
     }, }}>
 
       { isUser && (
@@ -40,16 +55,23 @@ export default function Blog({title, description, imageURL, userName, isUser, bl
           <IconButton onClick={handleDelete }> <DeleteIcon color="primary" /> </IconButton>
         </Box>
       )}
-
+      
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-            {userName}
-          </Avatar>
+          
+              <Avatar sx={{ bgcolor: "blue", }}  > {/*width: 56, height: 56  */}
+              {userName.split(/\s/).reduce((response,word)=> response+=word.slice(0,1),'')}  {/* get the 1st letter of each word */}
+              </Avatar> 
+            
+         
+          
         }
-      
+        titleTypographyProps={{ fontSize:'18px' }}
         title={title}
-        subheader="September 14, 2016"
+
+        subheaderTypographyProps={{ fontSize:'15px' }}
+        subheader={formatedDate}
+        
       />
       <CardMedia
         component="img"

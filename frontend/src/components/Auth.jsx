@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 import axios from 'axios'
 
-export default function Auth() {
+export default function Auth({isSignup,setisSignup}) {
     const navigate = useNavigate()
-    const [isSignup, setisSignup] = useState(false)
+    //const [isSignup, setisSignup] = useState(false)
     const dispatch = useDispatch()
     const [inputs, setInputs] = useState({
         name:"",
@@ -34,7 +34,7 @@ export default function Auth() {
        
         
         const data = await res.data
-        console.log(data);
+        //console.log(data);
         return data
 
     }

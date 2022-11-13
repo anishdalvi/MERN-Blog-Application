@@ -8,6 +8,7 @@ export default function UserBlogs() {
   const sendRequest = async () => {
     const res = await axios.get(`http://localhost:5000/api/blog/user/${id}`).catch((err) => console.log(err))
     const data = await res.data
+    //console.log(data.user.blogs)
     return data
   }
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function UserBlogs() {
     <div>
     {" "}
     {user && user.blogs && user.blogs.map((blog, index) => (
-    <Blog key={index} blogId={blog._id} isUser={true} title = {blog.title} description ={blog.description} imageURL = {blog.image} userName = {user.name}/>  // or key={blog._id} 
+    <Blog key={index} blogId={blog._id} isUser={true} title = {blog.title} description ={blog.description} imageURL = {blog.image} userName = {user.name} blog_Date = {blog.updatedAt}/>  // or key={blog._id} 
     )) }
   </div>
   )

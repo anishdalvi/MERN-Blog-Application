@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 exports.getAllBlogs = async (req, res, next) => {
     let blogs
     try {
-        blogs = await Blog.find().populate('user')
+        blogs = await Blog.find().populate('user').sort({updatedAt: -1})
     } catch (error) {
         return console.log(error)
     }
@@ -100,13 +100,14 @@ exports.deleteBlog = async (req, res, next) => {
     }
     return res.status(200).json({message: 'Blog deleted'})
 }
-
+//.sort({updatedAt: -1})
 
 exports.getByUserId = async (req, res, next) => {
     const userId = req.params.id
     let userBlogs
     try {
-        userBlogs = await User.findById(userId).populate("blogs")
+        userBlogs = await User.findById(userId).populate({path:'blogs',options:{ sort:{updatedAt : -1}}})
+        //console.log(userBlogs)
     } catch (error) {
         return console.log(error)
     }
