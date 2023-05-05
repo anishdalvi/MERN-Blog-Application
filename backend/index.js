@@ -17,6 +17,10 @@ mongoose.connect(DB).then(()=> console.log("MongoDB connected")).catch((err)=> c
 
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.json("Server Heroku started")
+})
+
 const userRouter = require('./routes/User.route')
 app.use('/api/user',userRouter)
 

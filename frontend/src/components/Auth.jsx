@@ -25,6 +25,7 @@ export default function Auth({isSignup,setisSignup}) {
     } 
 
     const sendRequest = async (type="signin") => {
+            /* const res = await axios.post(`https://mern-blog-app-2022.herokuapp.com/api/user/${type}`, { */
             const res = await axios.post(`http://localhost:5000/api/user/${type}`, {
             name:inputs.name,
             email : inputs.email,
