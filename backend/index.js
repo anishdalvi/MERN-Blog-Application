@@ -14,6 +14,8 @@ app.use(cors())
 
 //app.use(bodyParser.urlencoded({ extended: true }));
 //mongoose.connect(("mongodb://localhost:27017/blog-app-new"+"-replicaSet=rs")
+mongoose.set("strictQuery", false);
+
 mongoose.connect(DB).then(()=> console.log("MongoDB connected")).catch((err)=> console.log(err))
 
 app.use(express.json())
