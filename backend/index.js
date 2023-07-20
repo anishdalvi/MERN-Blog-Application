@@ -20,9 +20,9 @@ mongoose.connect(DB).then(()=> console.log("MongoDB connected")).catch((err)=> c
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.json("Server started")
-})
+}) */
 
 const userRouter = require('./routes/User.route')
 app.use('/api/user',userRouter)
