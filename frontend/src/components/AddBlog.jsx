@@ -40,7 +40,7 @@ export default function AddBlog() {
   const handleSubmit = (e) => {
     e.preventDefault()
     //console.log(inputs)
-    sendRequest().then((data) => {console.log(data)}).then(() => navigate("/myBlogs"))
+    sendRequest().then(() => navigate("/myBlogs"))
   }
 
 

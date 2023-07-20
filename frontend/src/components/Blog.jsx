@@ -39,7 +39,7 @@ export default function Blog({title, description, imageURL, userName, isUser, bl
 
   const handleDelete = () => {
 
-    deleteRequest().then((data) => {console.log(data)}).then(() => navigate("/blogs"))
+    deleteRequest().then(() => navigate("/blogs"))
     
   }
   
