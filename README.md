@@ -12,10 +12,24 @@ I have used MongoDB Atlas as a Database
 
 ## To run this application
 
+
+#### To Run from Root Directory
+
+`npm run dev` <br> (concurrently run server and client) <br>
+
+or <br>
+
+`npm run server`  (only run backend) <br>
+`npm run client`  (only run frontend) <br>
+
+
 #### To Run Backend
-`npm --prefix backend start` (node) <br>
+`npm --prefix backend start` (node) 
+
  or <br>
-`npm --prefix backend run server` (with nodemon) <br>
+ 
+`npm --prefix backend run server` (with nodemon) 
+
  or <br>
 
 `cd backend` <br>
