@@ -26,7 +26,7 @@ export default function AddBlog() {
   
   const sendRequest = async () => {
     /* const res = await axios.post("https://mern-blog-app-2022.herokuapp.com/api/blog/add",{ */
-    const res = await axios.post("http://localhost:5000/api/blog/add",{
+    const res = await axios.post("/api/blog/add",{
       title:inputs.title,
       description:inputs.description,
       image:inputs.imageURL,

@@ -26,7 +26,7 @@ export default function Auth({isSignup,setisSignup}) {
 
     const sendRequest = async (type="signin") => {
             /* const res = await axios.post(`https://mern-blog-app-2022.herokuapp.com/api/user/${type}`, { */
-            const res = await axios.post(`http://localhost:5000/api/user/${type}`, {
+            const res = await axios.post(`/api/user/${type}`, {
             name:inputs.name,
             email : inputs.email,
             password : inputs.password
@@ -46,7 +46,7 @@ export default function Auth({isSignup,setisSignup}) {
         if (isSignup){
             sendRequest("signup").then((data) => localStorage.setItem("userId", data.user._id))
             .then(() => { dispatch(authActions.signin())}).then(() => navigate("/blogs"))
-            .then(data => console.log(data))
+    
         }
         else {
             sendRequest().then((data) => localStorage.setItem("userId", data.user._id))

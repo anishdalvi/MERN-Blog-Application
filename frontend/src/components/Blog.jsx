@@ -30,7 +30,7 @@ export default function Blog({title, description, imageURL, userName, isUser, bl
   
   const deleteRequest = async () =>{
     //const res = await axios.delete(`https://mern-blog-app-2022.herokuapp.com/api/blog/${blogId}`).catch((err) => {console.log(err)})
-    const res = await axios.delete(`http://localhost:5000/api/blog/${blogId}`).catch((err) => {console.log(err)})
+    const res = await axios.delete(`/api/blog/${blogId}`).catch((err) => {console.log(err)})
     const data = await res.data
     const value = 1
     return data
