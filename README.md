@@ -13,6 +13,11 @@ I have used MongoDB Atlas as a Database
 ## To run this application
 
 #### To Run Backend
+`npm --prefix backend start` (node) <br>
+ or <br>
+`npm --prefix backend run server` (with nodemon) <br>
+ or <br>
+
 `cd backend` <br>
 
 `npm install` <br>
@@ -20,7 +25,12 @@ I have used MongoDB Atlas as a Database
 `npm start`
 
 #### To Run Frontend
-`cd fronend` <br>
+
+`npm --prefix frontend run client` <br>
+
+or
+
+`cd frontend` <br>
 
 `npm install` <br>
 

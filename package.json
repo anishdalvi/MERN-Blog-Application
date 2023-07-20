@@ -1,0 +1,24 @@
+{
+  "name": "blog-application",
+  "version": "1.0.0",
+  "description": "This is the **BLog Application** Web App developed using MERN Stack",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/index",
+    "server": "nodemon backend/index",
+    "client": "npm run client --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anishdalvi/MERN-Blog-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anishdalvi/MERN-Blog-Application/issues"
+  },
+  "homepage": "https://github.com/anishdalvi/MERN-Blog-Application#readme"
+}
