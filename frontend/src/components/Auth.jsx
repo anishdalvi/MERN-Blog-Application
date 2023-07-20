@@ -30,13 +30,11 @@ export default function Auth({isSignup,setisSignup}) {
             name:inputs.name,
             email : inputs.email,
             password : inputs.password
-        }).catch((err) => console.log("axios error : " + err));
+            }).catch((err) => console.log("axios error : " + err))
         
-       
-        
-        const data = await res.data
-        //console.log(data);
-        return data
+            const data = await res.data
+            //console.log(data);
+            return data
 
     }
 
@@ -69,9 +67,22 @@ export default function Auth({isSignup,setisSignup}) {
                     borderRadius={5}
 
                 >
+                    
                     <Typography padding={3} textAlign="center" variant='h2' >
                         { isSignup ? "Sign Up" : "Sign In"} 
                     </Typography>
+                    
+                    {!isSignup && 
+                        <div style={{ textAlign: 'start', margin: '0 auto', width: "250px" }}>
+                            <h6 style={{ fontSize: '15px', fontWeight: 'lighter' }} >
+                                Demo Account: <span style={{ fontWeight: '600' }}> demo@demo.com </span>
+                            </h6>
+                            <h6 style={{ fontSize: '15px', fontWeight: 'lighter' }} >
+                                Demo Password: <span style={{ fontWeight: '600' }}> 1234 </span>
+                            </h6>
+                        </div> 
+                    }
+
                     { isSignup &&  <TextField margin="normal" onChange={handleChange} name="name" placeholder="Name" value={inputs.name} />}
                     <TextField margin="normal" onChange={handleChange} name="email" placeholder="Email" type="email" value={inputs.email} />
                     <TextField margin="normal" onChange={handleChange} name="password" placeholder="Password" type="password" value={inputs.password} />

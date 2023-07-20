@@ -25,10 +25,10 @@ exports.signUp = async (req, res, next) => {
     try {
         existingUser = await User.findOne({email:email})
     } catch (error) {
-        return console.log(error)
+        return console.log("Catch Error" + error)
     }
     if (existingUser){
-        //alert("User already exists")
+        console.log("User already exists")
         return res.status(400).json({message:"User already exists"})
     }
 
@@ -71,7 +71,7 @@ exports.signIn = async (req, res,next) => {
     try {
         existingUser = await User.findOne({email})
     } catch (error) {
-        return console.log(error)
+        return console.log( "Catch Error"+error)
     }
     if (!existingUser){
         console.log("User not found")

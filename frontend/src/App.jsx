@@ -33,9 +33,9 @@ function App() {
       </header>
       <main>
         <Routes>
-          { !isLoggedIn ? <Route path="/auth" element={<Auth isSignup={isSignup} setisSignup={setisSignup} />} ></Route>:
+          { !isLoggedIn ? <Route index path="/auth" element={<Auth isSignup={isSignup} setisSignup={setisSignup} />} ></Route>:
           <>
-           <Route path="/blogs" element={<Blogs />} ></Route>
+          <Route path="/blogs" element={<Blogs />} ></Route>
           <Route path="/blogs/add" element={<AddBlog />} ></Route>
           <Route path="/myBlogs" element={<UserBlogs />} ></Route>
           <Route path="/myBlogs/:id" element={<BlogDetails />} ></Route>
