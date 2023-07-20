@@ -6,6 +6,8 @@ I have used MongoDB Atlas as a Database
 
 *The user can perform CRUD operations and can see the blogs posted by others.*
 
+**[View Demo](https://mern-blog-app-zzot.onrender.com)**
+
 ## Before Running  this application
 <p>Add your MONGODB ATLAS URI in **.env-example** in backend folder </p>
 <p>Rename the .env-example file to **.env** </p>
