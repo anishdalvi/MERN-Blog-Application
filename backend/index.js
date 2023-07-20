@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const path = require("path");
 //const bodyParser = require("body-parser")
 require('dotenv').config({path: '.env'});
 
@@ -18,7 +19,7 @@ mongoose.connect(DB).then(()=> console.log("MongoDB connected")).catch((err)=> c
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.json("Server Heroku started")
+    res.json("Server started")
 })
 
 const userRouter = require('./routes/User.route')
@@ -27,6 +28,16 @@ app.use('/api/user',userRouter)
 
 const blogRouter = require('./routes/Blog.route')
 app.use('/api/blog',blogRouter)
+
+// path
+
+if ( process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '../frontend/dist')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname,'../frontend/dist/index.html')))
+} else{
+    app.get('/', (req, res) => res.send('Not in Production'))
+}
 
 
 app.listen(port, () => {
